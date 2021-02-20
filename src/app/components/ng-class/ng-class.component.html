@@ -1,0 +1,26 @@
+<div class="card-panel " [ngClass]="'teal lighten-2'">This is a card panel with a teal lighten-2 class</div>
+
+<div class="card-panel " [ngClass]="alerta">This is a card panel with a teal lighten-2 class</div>
+
+<div class="card-panel " [ngClass]="variable">This is a card panel with a teal lighten-2 class</div>
+
+<a class="waves-effect waves-light btn" (click)="variable='red darken-2'">Info</a>
+
+<a class="waves-effect waves-light btn" (click)="variable='teal lighten-2'">succes</a>
+
+
+
+<br><br>
+
+<h3 [ngClass]="{'red-text': propiedades.danger, 'blue-text': !propiedades.danger}">Hola mundo</h3>
+<a [ngClass]="{'red': propiedades.danger, 'blue': !propiedades.danger}" class="waves-effect waves-light btn" (click)="propiedades.danger = !propiedades.danger">toggle</a>
+
+
+<br><br>
+<h3>Procesos asíncrono</h3>
+
+
+<a class="waves-effect waves-light btn" (click)="ejecutar()" [ngClass]="{'disabled':loading}"><i class="iconFA" [ngClass]="{'fa-save':!loading,'fa-sync fa-spin':loading}" class="fas fa-xs"></i>
+    <span *ngIf="!loading">Guardar cambios</span>
+    <span *ngIf="loading">Guardando</span>
+</a>

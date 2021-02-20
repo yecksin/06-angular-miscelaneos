@@ -1,27 +1,36 @@
+# Descripcion
+
+- ng-style
+- ng-class
+- ng-switch
+- directiva personalizada
+
 # Miscelaneos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+ng g c components/ngStyle -it -is
 
-## Development server
+crear el style y el html enel mismo ts
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Creacion de directivas
 
-## Code scaffolding
+ng g d directives/resaltado
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+para usar manipular elementos html se impORta en la directiva ElementRef
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+import { Directive, ElementRef } from '@angular/core';
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  constructor(private el:ElementRef) { 
+    console.log("directiva llamada");
+  }
 
-## Further help
+  PAra manejar mosue se impORta HostListener y no se inyecta en con constructor
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  import { Directive, ElementRef, HostListener } from '@angular/core';
+  @HostListener('mouseenter') mouseEntro(){
+    this.el.nativeElement.style.backgroundColor="red";
+
+  }
