@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ng-switch.component.scss']
 })
 export class NgSwitchComponent implements OnInit {
-
+  alerta:string = "warning";
   constructor() { }
 
   ngOnInit(): void {

@@ -1,1 +1,22 @@
-<p>ng-switch works!</p>
+
+
+
+
+
+<div [ngSwitch]="alerta">
+<div *ngSwitchCase="'succes'">
+    <div class="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div>
+
+</div>
+<div *ngSwitchCase="'info'">
+    <div class="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div>
+
+</div>
+<div *ngSwitchCase="'warning'">
+    <div class="card-panel yellow lighten-2">This is a card panel with a teal lighten-2 class</div>
+    </div>
+<div *ngSwitchDefault>
+    <div class="card-panel danger lighten-2">This is a card panel with a teal lighten-2 class</div>
+
+</div>
+</div>

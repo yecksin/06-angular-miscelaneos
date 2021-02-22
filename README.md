@@ -4,6 +4,7 @@
 - ng-class
 - ng-switch
 - directiva personalizada
+- Rutas hijas
 
 # Miscelaneos
 
@@ -34,3 +35,8 @@ import { Directive, ElementRef } from '@angular/core';
     this.el.nativeElement.style.backgroundColor="red";
 
   }
+
+
+# crear componentes sin carpeta de raiz
+
+ng g c components/usuario/usuarioDetalle -is -it --flat 
