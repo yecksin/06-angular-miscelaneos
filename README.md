@@ -5,6 +5,7 @@
 - ng-switch
 - directiva personalizada
 - Rutas hijas
+- parametro por ruta
 
 # Miscelaneos
 
@@ -40,3 +41,50 @@ import { Directive, ElementRef } from '@angular/core';
 # crear componentes sin carpeta de raiz
 
 ng g c components/usuario/usuarioDetalle -is -it --flat 
+
+# Rutas hijas
+
+recuerda usar el router outlet en el componente hijo
+
+para usar archivo de rutas para resumir la info se crear un archivo ts solo con las rutas
+
+
+
+
+
+import { Routes, RouterModule } from '@angular/router';
+import { UsuarioDetalleComponent } from './usuario-detalle.component';
+import { UsuarioEditarComponent } from './usuario-editar.component';
+import { UsuarioNuevoComponent } from './usuario-nuevo.component';
+
+export const usuarioroutes: Routes = [
+  { path: '', component: UsuarioNuevoComponent },
+  { path: 'path2', component: UsuarioEditarComponent },
+  { path: '**', component: UsuarioDetalleComponent },
+
+];
+
+
+
+luego se pone el nombre dela variable en el routin y se importa automaticamente, ejemplo
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { 
+    path: 'usuario/:id', 
+    component: UsuarioComponent,
+    children: usuarioroutes
+  },
+  { path: '**', component: HomeComponent },
+];
+
+
+# obetener parametros de ruta padre 
+
+   constructor(public router:ActivatedRoute) {
+    this.router.parent.params.subscribe(parametros=>{
+      console.log("Ruta padre");
+      console.log(parametros);
+    })
+   }
